@@ -129,20 +129,10 @@ function AlarmItem(props) {
         }
     }
 
-    const stopperAlert = () => {
-        props.setCurrent('empty');
-        BackgroundTimer.clearTimeout(timer);
-        onlyRadio.stop();
-    }
-
     useEffect(() => {
         if (enable) {
             setTimer(BackgroundTimer.setTimeout(() => {
                 Alert.alert('Alert', `Already ${String(props.hours).length == 1 ? '0' + props.hours : props.hours}:${String(props.minutes).length == 1 ? '0' + props.minutes : props.minutes}`, [
-                    {
-                        text: "Disable",
-                        onPress: () => { stopperAlert() }
-                    },
                     {
                         text: "Ok",
                     },
